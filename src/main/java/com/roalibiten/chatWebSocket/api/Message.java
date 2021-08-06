@@ -3,15 +3,33 @@ package com.roalibiten.chatWebSocket.api;
 public class Message {
 	
 	private String sender;
+	
+	private String message;
+	private String sendTo;
+	private String ip;
+	private String device;
+	
+	
+	
+	
+	public String getIp() {
+		return ip;
+	}
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+	public String getDevice() {
+		return device;
+	}
+	public void setDevice(String device) {
+		this.device = device;
+	}
 	public String getSendTo() {
 		return sendTo;
 	}
 	public void setSendTo(String sendTo) {
 		this.sendTo = sendTo;
 	}
-	private String message;
-	private String sendTo;
-
 	public String getSender() {
 		return sender;
 	}
@@ -26,7 +44,8 @@ public class Message {
 	}
 	@Override
 	public String toString() {
-		return "Message [sender=" + sender + ", message=" + message + ", sendTo=" + sendTo + "]";
+		return "Message [sender=" + sender + ", message=" + message + ", sendTo=" + sendTo + ", ip=" + ip + ", device="
+				+ device + "]";
 	}
 	
 	
