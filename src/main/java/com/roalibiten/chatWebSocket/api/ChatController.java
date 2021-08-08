@@ -16,12 +16,12 @@ public class ChatController {
 	@Autowired
 	private SimpMessagingTemplate messagingTemplate;
 	
-	@MessageMapping("chat")
+	@MessageMapping("chat/{username}")
 	//@SendTo("/topic")
 	//@SendToUsers()
 	public void sendToUser(@Payload Message message) {
-		System.out.println(message);
-		messagingTemplate.convertAndSend("/topic/username",message);	
+		System.out.println("ozell"+message+"/chat/"+message.getSendTo());
+		messagingTemplate.convertAndSend("/chat/"+message.getSendTo(),message);	
 	}
 	
 	@MessageMapping("toEmployee")
