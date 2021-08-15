@@ -18,6 +18,8 @@ public class DatabaseConnection {
 		 MongoClient client = MongoClients.create("mongodb+srv://roali:RoaliBiten@cluster0.rdbwv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
 
 	         db = client.getDatabase("webChatApp");
+	         
+	         
 
 	        //MongoCollection col = db.getCollection("messages");
 
