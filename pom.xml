@@ -28,6 +28,20 @@
 			<scope>test</scope>
 		</dependency>
 	
+	
+  <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver-sync</artifactId>
+  </dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.mongodb/bson -->
+<dependency>
+    <groupId>org.mongodb</groupId>
+    <artifactId>bson</artifactId>
+    <version>4.3.1</version>
+</dependency>
+	
+
 	</dependencies>
 
 	<build>
