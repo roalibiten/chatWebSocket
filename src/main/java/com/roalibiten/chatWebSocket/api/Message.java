@@ -9,6 +9,14 @@ public class Message {
 	private String ip;
 	private String device;
 	
+	public String getMail() {
+		return mail;
+	}
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+	private String mail;
+
 	
 	
 	

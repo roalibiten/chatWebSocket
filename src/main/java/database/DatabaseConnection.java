@@ -11,12 +11,13 @@ import com.mongodb.client.MongoDatabase;
 
 public class DatabaseConnection {
 	
-
+	public MongoDatabase db;
+	
 	public DatabaseConnection() {
 		
 		 MongoClient client = MongoClients.create("mongodb+srv://roali:RoaliBiten@cluster0.rdbwv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
 
-	        MongoDatabase db = client.getDatabase("webChatApp");
+	         db = client.getDatabase("webChatApp");
 
 	        //MongoCollection col = db.getCollection("messages");
 
