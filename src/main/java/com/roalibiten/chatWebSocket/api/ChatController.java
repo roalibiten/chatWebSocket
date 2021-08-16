@@ -25,11 +25,13 @@ import com.mongodb.client.MongoIterable;
 
 import database.DatabaseConnection;
 
+import java.awt.Cursor;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
 import org.bson.Document;
+import org.json.JSONObject;
 
 
 @Controller
@@ -74,7 +76,7 @@ public class ChatController {
 		
 		MongoCollection col = aConnection.db.getCollection(message.getMail());
 		
-		Document sampleDoc = new Document().append("message", message.getMessage()).append("sender", message.getSender());
+		Document sampleDoc = new Document().append("sendTo", message.getSendTo()).append("message", message.getMessage()).append("sender", message.getSender());
 		
 		col.insertOne(sampleDoc);
 		
@@ -89,7 +91,8 @@ public class ChatController {
 	    public String welcomeAsHTML() {
 		   
 		   ArrayList<String> colls = new ArrayList<String>();
-		   
+		   ArrayList<String> messages = new ArrayList<String>();
+	       
 		   DatabaseConnection aConnection=new DatabaseConnection();
 			
 			
@@ -97,6 +100,7 @@ public class ChatController {
 			MongoIterable<String> collsNames = aConnection.db.listCollectionNames();
 
 			for (String s : collsNames) {
+				ArrayList<String> dialogs = new ArrayList<String>();
 				
 				colls.add(s);
 				
@@ -105,11 +109,20 @@ public class ChatController {
 			    MongoCursor<Document> cursor = col.find().iterator();
 			    
 		        while (cursor.hasNext()) {
-		            System.out.println(s+"collection is " +cursor.next() );
+		        	
+
+		        	
+		        	dialogs.add(cursor.next().toJson());
+
 		        }
+		        dialogs.add("SAAAAA");
+	        	messages.addAll(dialogs);
+
 			}
 			
-	        return colls.toString();
+	        return messages.toString();
 	    }
+
+
 	
 }
