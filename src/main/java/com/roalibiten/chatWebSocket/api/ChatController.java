@@ -57,8 +57,12 @@ public class ChatController {
 		
 		MongoCollection col = aConnection.db.getCollection(message.getMail());
 		
-		Document sampleDoc = new Document().append("message", message.getMessage()).append("sender", message.getSender());
-		
+		Document sampleDoc = new Document().append("sendTo", message.getSendTo())
+				.append("message", message.getMessage())
+				.append("ip", message.getIp())
+				.append("device", message.getDevice())
+				.append("mail", message.getMail())
+				.append("sender", message.getSender());		
 		col.insertOne(sampleDoc);
 	}
 	
@@ -76,7 +80,12 @@ public class ChatController {
 		
 		MongoCollection col = aConnection.db.getCollection(message.getMail());
 		
-		Document sampleDoc = new Document().append("sendTo", message.getSendTo()).append("message", message.getMessage()).append("sender", message.getSender());
+		Document sampleDoc = new Document().append("sendTo", message.getSendTo())
+				.append("message", message.getMessage())
+				.append("ip", message.getIp())
+				.append("device", message.getDevice())
+				.append("mail", message.getMail())
+				.append("sender", message.getSender());
 		
 		col.insertOne(sampleDoc);
 		
@@ -115,7 +124,7 @@ public class ChatController {
 		        	dialogs.add(cursor.next().toJson());
 
 		        }
-		        dialogs.add("SAAAAA");
+		        dialogs.add("---");
 	        	messages.addAll(dialogs);
 
 			}

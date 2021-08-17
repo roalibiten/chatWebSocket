@@ -8,6 +8,8 @@ public class Message {
 	private String sendTo;
 	private String ip;
 	private String device;
+	private String mail;
+
 	
 	public String getMail() {
 		return mail;
@@ -15,7 +17,6 @@ public class Message {
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
-	private String mail;
 
 	
 	
